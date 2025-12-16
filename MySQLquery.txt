@@ -1,0 +1,137 @@
+INSERT INTO venues (name, location, venue_type, min_capacity, max_capacity, veg_price, non_veg_price, rating, review_count, image_url, description, created_at)
+VALUES 
+('The Leela Palace', 'Old Airport Road, Bangalore', 'Luxury 5 Star Hotel', 100, 1500, 4500, 5000, 4.9, 45, 'https://www.theleela.com/content/dam/leela-hotels/the-leela-palace-bengaluru/overview/Exterior-1.jpg', 'Iconic luxury hotel with grand ballrooms and excellent service', NOW()),
+('Taj West End', 'Race Course Road, Bangalore', 'Heritage 5 Star Hotel', 150, 2000, 4200, 4700, 4.8, 38, 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/20/82/aa/heritage-block.jpg?w=900&h=500&s=1', 'Historic hotel with lush gardens and elegant event spaces', NOW()),
+('ITC Gardenia', 'Residency Road, Bangalore', '5 Star Hotel', 120, 1800, 4000, 4500, 4.7, 42, 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/ab/56/ce/filename-01-exterior.jpg?w=900&h=500&s=1', 'Luxury hotel known for its eco-friendly approach and grand venues', NOW()),
+('The Oberoi Bangalore', 'MG Road, Bangalore', 'Luxury 5 Star Hotel', 100, 1200, 5000, 5500, 4.9, 50, 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/47332810.jpg?k=4f26387b1f3c4d39152066fb9a1c631b5ab2a21432c472780585e3c95e4ab1df&o=&hp=1', 'Premium luxury hotel with sophisticated event venues', NOW()),
+('The Ritz-Carlton', 'Residency Road, Bangalore', 'Luxury 5 Star Hotel', 80, 1000, 6000, 6500, 4.9, 48, 'https://media-cdn.tripadvisor.com/media/photo-s/11/81/65/85/lit-up-walkways.jpg', 'Ultra-luxurious hotel with exquisite banquet facilities', NOW()),
+('JW Marriott Bangalore', 'Vittal Mallya Road, Bangalore', '5 Star Hotel', 150, 2000, 4800, 5200, 4.8, 40, 'https://ik.imgkit.net/3vlqs5axxjf/external/https://www.cfmedia.vfmleonardo.com/imageRepo/2/0/189/247/168/jRDwZg6Z30uBChyWJTaPkQ_blrjw-exterior-3296_O.jpg?tr=w-1200%2Cfo-auto', 'Modern luxury hotel with versatile event spaces', NOW()),
+('The Lalit Ashok', 'Kumara Krupa High Grounds, Bangalore', '5 Star Hotel', 200, 2500, 3800, 4200, 4.5, 35, 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/6e/1d/4f/the-lalit-ashok.jpg?w=900&h=500&s=1', 'Sprawling property with vast event spaces for large weddings', NOW()),
+('Vivanta by Taj', 'Yeshwantpur, Bangalore', '5 Star Hotel', 150, 1800, 3500, 3900, 4.6, 32, 'https://www.vivantahotels.com/content/dam/vivanta/vbt-whitefield/images/quick-peek/Whitefield_Quick-new.JPG/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg', 'Contemporary hotel with excellent banquet facilities', NOW()),
+('The Zuri Whitefield', 'Whitefield, Bangalore', '5 Star Hotel', 100, 1500, 3200, 3600, 4.4, 28, 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/e1/47/65/the-zuri-whitefield-bengaluru.jpg?w=900&h=500&s=1', 'Modern hotel in Bangalore''s tech hub with great venues', NOW()),
+('The Paul Bangalore', 'Domlur, Bangalore', '5 Star Hotel', 80, 1200, 3000, 3400, 4.3, 25, 'https://r1imghtlak.mmtcdn.com/d5cef24e8b6e11e78ba70a4cef95d023.jpg', 'Boutique luxury hotel with intimate event spaces', NOW()),
+('The Chancery Pavilion', 'Lavelle Road, Bangalore', '5 Star Hotel', 100, 1500, 2800, 3200, 4.2, 22, 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/79997277.jpg?k=5ec86f6dbd41628f52040247eb2fa1cc3088cebdbd1c83129f6d6d61d5756912&o=&hp=1', 'Central Bangalore hotel with excellent banquet halls', NOW()),
+('The Park Bangalore', 'MG Road, Bangalore', '5 Star Hotel', 80, 1000, 3500, 3900, 4.4, 30, 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/3c/ca/9b/the-park-bangalore.jpg?w=700&h=-1&s=1', 'Hip hotel in the heart of Bangalore with stylish venues', NOW()),
+('Le Meridien Bangalore', 'Sankey Road, Bangalore', '5 Star Hotel', 120, 1500, 4200, 4600, 4.6, 35, 'https://www.traveliteindia.com//uimages/hotel/hotelslider/image/1278.jpg', 'Sophisticated hotel with elegant event spaces', NOW()),
+('Sheraton Grand Bangalore', 'Brigade Gateway, Bangalore', '5 Star Hotel', 150, 2000, 4500, 4900, 4.7, 38, 'https://cache.marriott.com/content/dam/marriott-renditions/BLRSI/blrsi-exterior-3679-hor-wide.jpg', 'Grand hotel with excellent conference and banquet facilities', NOW()),
+('Taj Yeshwantpur', 'Yeshwantpur, Bangalore', '5 Star Hotel', 100, 1500, 3800, 4200, 4.5, 32, 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/21/20/c9/facadenight.jpg?w=900&h=500&s=1', 'Luxury hotel in North Bangalore with spacious venues', NOW()),
+('Radisson Blu Atria', 'Palace Road, Bangalore', '5 Star Hotel', 120, 1800, 3500, 3900, 4.3, 28, 'https://www.hotelierindia.com/cloud/2021/11/22/kMN5RU1E-Radisson-Blu-Atria-Bengaluru.jpg', 'Classic hotel with excellent event spaces in central Bangalore', NOW()),
+('Fortune Park JP Celestial', 'Race Course Road, Bangalore', '4 Star Hotel', 100, 1200, 3000, 3400, 4.2, 25, 'https://ik.imgkit.net/3vlqs5axxjf/external/ik-seo/http://images.ntmllc.com/v4/hotel/T41/T41571/T41571_EXT_Z09178/Fortune-Park-J-P-Celestial-Hotel-Exterior.JPG?tr=w-780%2Ch-437%2Cfo-auto', 'Value-for-money hotel with good banquet facilities', NOW()),
+('Royal Orchid Bangalore', 'Old Airport Road, Bangalore', '5 Star Hotel', 150, 2000, 3200, 3600, 4.4, 30, 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/293454737.jpg?k=384ed2d0fea21de6a2af562081c0cec314688863d88167cce165e90102549cb0&o=&hp=1', 'Well-established hotel with spacious event venues', NOW());
+
+
+INSERT INTO venues (name, location, venue_type, min_capacity, max_capacity, veg_price, non_veg_price, rating, review_count, image_url, description, created_at)
+VALUES 
+('The Leela Palace Delhi', 'Chanakyapuri, Delhi', '5 Star Hotel', 100, 1200, 4500, 5000, 4.8, 25, 'https://www.leelahotels.com/uploads/property_gallery_image/5d4b0e8a2e1e5.jpg', 'Luxury 5-star hotel with grand ballrooms and excellent service', NOW()),
+('Taj Mahal Hotel', 'Mansingh Road, Delhi', '5 Star Hotel', 50, 1000, 5000, 5500, 4.9, 30, 'https://www.tajhotels.com/content/dam/tajhotels/india/taj-mahal-delhi/overview/Exterior-1.jpg', 'Iconic luxury hotel with exquisite banquet facilities', NOW()),
+('The Oberoi Delhi', 'Dr. Zakir Hussain Marg, Delhi', '5 Star Hotel', 80, 800, 4200, 4700, 4.7, 22, 'https://www.oberoihotels.com/-/media/oberoi-hotels/website-images/the-oberoi-new-delhi/overview/overview-1.jpg', 'Premium 5-star hotel with elegant event spaces', NOW()),
+('ITC Maurya', 'Diplomatic Enclave, Delhi', '5 Star Hotel', 100, 1500, 4800, 5200, 4.8, 28, 'https://www.itchotels.com/content/dam/itchotels/in/umbrella/itc/hotels/itcmaurya/newdelhi/images/overview/overview-desktop/hotel-exterior.jpg', 'Luxury hotel known for its grand weddings and impeccable service', NOW()),
+('The Lalit New Delhi', 'Barakhamba Avenue, Delhi', '5 Star Hotel', 150, 2000, 3500, 4000, 4.5, 20, 'https://www.thelalit.com/wp-content/uploads/2020/04/The-Lalit-New-Delhi-Exterior.jpg', 'Spacious venue with multiple banquet halls for large weddings', NOW()),
+('The Ashok Hotel', 'Diplomatic Enclave, Delhi', '5 Star Hotel', 200, 2500, 3000, 3500, 4.3, 18, 'https://www.theashok.com/images/hotel-exterior.jpg', 'Historic hotel with vast event spaces for grand weddings', NOW()),
+('The Grand Hyatt Delhi', 'Vasant Kunj, Delhi', '5 Star Hotel', 150, 1800, 4000, 4500, 4.6, 35, 'https://www.hyatt.com/content/dam/feature/hotels/grandhyattdelhi/images/overview/Grand-Hyatt-Delhi-Exterior.jpg', 'Modern luxury hotel with versatile event spaces', NOW()),
+('The Lodhi Hotel', 'Lodhi Road, Delhi', 'Luxury Boutique Hotel', 80, 600, 5500, 6000, 4.9, 42, 'https://www.thelodhi.com/wp-content/uploads/2020/04/The-Lodhi-Hotel-Exterior.jpg', 'Exclusive boutique hotel with intimate wedding venues', NOW()),
+('The Metropolitan Hotel', 'Bangla Sahib Road, Delhi', '5 Star Hotel', 100, 1500, 3800, 4200, 4.4, 28, 'https://www.metdelhi.com/images/hotel-exterior.jpg', 'Central Delhi hotel with excellent banquet facilities', NOW()),
+('The Roseate House', 'Aerocity, Delhi', 'Luxury Hotel', 120, 2000, 4500, 5000, 4.7, 31, 'https://www.roseatehotels.com/theroseatehouse/images/hotel-exterior.jpg', 'Contemporary luxury hotel with stunning event spaces', NOW()),
+('The Taj Palace', 'Diplomatic Enclave, Delhi', '5 Star Hotel', 100, 1800, 4800, 5300, 4.8, 38, 'https://www.tajhotels.com/content/dam/tajhotels/india/taj-palace-delhi/overview/Exterior-1.jpg', 'Grand palace-style hotel perfect for royal weddings', NOW()),
+('The Manor Hotel', 'Friends Colony, Delhi', 'Boutique Hotel', 50, 500, 4200, 4700, 4.5, 26, 'https://www.themanordelhi.com/images/hotel-exterior.jpg', 'Charming boutique hotel for intimate weddings', NOW()),
+('The Imperial New Delhi', 'Janpath, Delhi', 'Heritage 5 Star Hotel', 100, 1500, 5200, 5800, 4.8, 45, 'https://www.theimperialindia.com/wp-content/uploads/2018/05/the-imperial-exterior.jpg', 'Historic luxury hotel with colonial charm', NOW()),
+('The Park New Delhi', 'Connaught Place, Delhi', '5 Star Hotel', 80, 800, 3800, 4200, 4.4, 32, 'https://www.theparkhotels.com/images/hotels/the-park-new-delhi/hotel-exterior.jpg', 'Modern hotel in the heart of Delhi with excellent venues', NOW()),
+('Shangri-La''s Eros Hotel', 'Connaught Place, Delhi', '5 Star Hotel', 120, 1200, 4500, 5000, 4.7, 38, 'https://www.shangri-la.com/uploadedImages/eros_newdelhi/shangrila_newdelhi_eros/Pics/About_Us/eros-hotel-exterior.jpg', 'Luxury hotel with elegant ballrooms and gardens', NOW()),
+('The Suryaa New Delhi', 'Friends Colony, Delhi', '5 Star Hotel', 150, 2000, 3500, 4000, 4.3, 28, 'https://www.thesuryaa.com/wp-content/uploads/2018/05/hotel-exterior.jpg', 'Spacious hotel with versatile event venues', NOW()),
+('The Claridges New Delhi', 'Dr. APJ Abdul Kalam Road, Delhi', 'Heritage 5 Star Hotel', 100, 1500, 4200, 4700, 4.6, 35, 'https://www.claridges.com/wp-content/uploads/2018/05/claridges-new-delhi-exterior.jpg', 'Historic luxury hotel with classic charm', NOW()),
+('The Umrao', 'Gurugram, Delhi NCR', 'Luxury Hotel', 100, 1200, 3800, 4200, 4.5, 25, 'https://www.theumrao.com/images/hotel-exterior.jpg', 'Modern luxury hotel in Delhi NCR with excellent venues', NOW());
+
+INSERT INTO venues (name, location, venue_type, veg_price, non_veg_price, min_capacity, max_capacity, image_url, rating, review_count)
+VALUES
+-- Chandivali Studio
+('Chandivali Studio', 'Mumbai', 'Marriage Garden / Lawns', 900, 1000, 500, 800, 'https://storage.googleapis.com/a1aa/image/huswyqV-zrUyjPu9NA-dtjA9J5nbd97UDpab_B7fXDw.jpg', 4.4, 4),
+
+-- Vivette Banquets Malad West
+('Vivette Banquets Malad West', 'Malad West, Mumbai', 'Banquet Halls', 1200, 1250, 300, 450, 'https://storage.googleapis.com/a1aa/image/QRrq9gyYPn3Jh8wGUxR_21m89e_spjoGrS2_7nWvfUE.jpg', 4.7, 15),
+
+-- Jade Luxury Banquets
+('Jade Luxury Banquets', 'Worli, Mumbai', 'Banquet Halls', 3200, 3400, 30, 600, 'https://storage.googleapis.com/a1aa/image/tGNrCgd9-it425NDcun4dkVb5ncj89-KCPEYwBnBlBU.jpg', 4.9, 9),
+
+-- Grand Hyatt Mumbai
+('Grand Hyatt Mumbai', 'Santacruz East, Mumbai', '5 Star Hotel', 3500, 3800, 100, 1000, 'https://storage.googleapis.com/a1aa/image/jR4-1YL5hfsFaj5RLS1qQDqTGn8zIMS13sp7ZCAvWrg.jpg', 4.8, 12),
+
+-- Taj Lands End
+('Taj Lands End', 'Bandra West, Mumbai', '5 Star Hotel', 4000, 4500, 50, 800, 'https://storage.googleapis.com/a1aa/image/FS8OVEiiui-tGWcDXmJU7aiIBnOQogsE2ZfRmsp0v7M.jpg', 4.9, 20),
+
+-- The Leela Mumbai
+('The Leela Mumbai', 'Andheri East, Mumbai', '5 Star Hotel', 3000, 3500, 100, 1200, 'https://storage.googleapis.com/a1aa/image/2jlgvDDpYUoxPPLKcYR2-Yv7VvfH32cXS84xrM-HdPA.jpg', 4.6, 18),
+
+-- ITC Maratha
+('ITC Maratha', 'Andheri East, Mumbai', '5 Star Hotel', 3200, 3700, 100, 1500, 'https://www.itchotels.com/content/dam/itchotels/in/umbrella/itc/hotels/itcmaratha-mumbai/images/meetings-and-socials-landing-page/venues/ballroom-4.png', 4.7, 22),
+
+-- JW Marriott
+('JW Marriott', 'Juhu, Mumbai', '5 Star Hotel', 4500, 5000, 50, 1000, 'https://cache.marriott.com/content/dam/marriott-renditions/BOMSA/bomsa-grand-ballroom-6737-hor-wide.jpg', 4.9, 30),
+
+-- Sofitel Mumbai BKC
+('Sofitel Mumbai BKC', 'Bandra East, Mumbai', '5 Star Hotel', 3800, 4200, 100, 1200, 'https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/80/2016/12/02015735/Sofitel-Mumbai-BKC-InspiredMeetings-Grand-Salon.jpg', 4.8, 25),
+
+-- Radisson Blu Mumbai
+('Radisson Blu Mumbai', 'Andheri East, Mumbai', '4 Star Hotel', 3000, 3000, 20, 500, 'https://storage.googleapis.com/a1aa/image/jCq5L4r_e3JLWBG4fgbinELB4rhgkfuuXPNSGjM1WsI.jpg', 5.0, 3),
+
+-- The Royal Halls
+('The Royal Halls', 'Worli, Mumbai', 'Banquet Halls', 2600, NULL, 300, 450, 'https://storage.googleapis.com/a1aa/image/7OoXK4GsBEXHrhmD4FuHcfmIZQTV2uqYtg4DIuMO-KM.jpg', 4.8, 5),
+
+-- Four Points by Sheraton
+('Four Points by Sheraton', 'Vashi, Mumbai', '4 Star Hotel', 2399, 2899, 50, 1000, 'https://storage.googleapis.com/a1aa/image/H23VUMTRrp3cLOvE46_Lq7Zid_Fazs3H5sIinEZgHjg.jpg', 4.4, 13),
+
+-- St. Regis Mumbai
+('St. Regis Mumbai', 'Lower Parel, Mumbai', 'Luxury 5 Star Hotel', 5500, 6000, 80, 800, 'https://www.marriott.com/content/dam/marriott-renditions/BOMXR/bomxr-exterior-3561-hor-wide.jpg', 4.9, 42),
+
+-- Trident Nariman Point
+('Trident Nariman Point', 'Nariman Point, Mumbai', '5 Star Hotel', 4800, 5200, 100, 1200, 'https://www.tridenthotels.com/content/dam/trident-hotels/mumbai/nariman-point/overview/Exterior-1.jpg', 4.7, 38),
+
+-- The Westin Mumbai Powai Lake
+('The Westin Mumbai Powai Lake', 'Powai, Mumbai', '5 Star Hotel', 4200, 4600, 150, 1500, 'https://www.marriott.com/content/dam/marriott-renditions/BOMWI/bomwi-exterior-3615-hor-wide.jpg', 4.6, 35),
+
+-- The Taj Mahal Palace
+('The Taj Mahal Palace', 'Colaba, Mumbai', 'Iconic 5 Star Hotel', 6000, 6500, 100, 2000, 'https://www.tajhotels.com/content/dam/tajhotels/india/taj-mahal-palace-mumbai/overview/Exterior-1.jpg', 4.9, 50),
+
+-- The Lalit Mumbai
+('The Lalit Mumbai', 'Andheri East, Mumbai', '5 Star Hotel', 3800, 4200, 150, 1800, 'https://www.thelalit.com/wp-content/uploads/2020/04/The-Lalit-Mumbai-Exterior.jpg', 4.5, 28),
+
+-- The Resort Mumbai
+('The Resort Mumbai', 'Madh Island, Mumbai', 'Beachfront Resort', 3200, 3600, 200, 2500, 'https://www.theresortmumbai.com/images/hotel-exterior.jpg', 4.4, 22);
+
+
+CREATE TABLE venues (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    venue_type VARCHAR(255) NOT NULL,
+    min_capacity INT NOT NULL,
+    max_capacity INT NOT NULL,
+    veg_price DECIMAL(10, 2),
+    non_veg_price DECIMAL(10, 2),
+    rating DECIMAL(2, 1),
+    review_count INT,
+    image_url VARCHAR(512),
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE `enquiries` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `venue` varchar(255) NOT NULL,
+  `event_date` date NOT NULL,
+  `guests` varchar(50) NOT NULL,
+  `message` text DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,0 +1,79 @@
+<!-- header.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- header.html -->
+<header class="bg-pink-600 text-white p-4 flex justify-between items-center">
+    <!-- Left section: Logo and platform name -->
+    <div class="flex items-center space-x-4">
+        <img alt="WedMeGood Logo" class="h-10" height="40" src="https://storage.googleapis.com/a1aa/image/wOFEQnYXu0Q5-rqHXcsQB_rPKxTCaMSn2epvfNmZuRU.jpg" width="40"/>
+        <span>Your Event Planning Platform</span>
+    </div>
+
+    <!-- Center section: Search bar -->
+    <div class="flex-grow mx-4">
+        <div class="flex justify-center">
+            <input class="p-3 border border-gray-300 rounded-l-lg shadow-md focus:outline-none focus:ring-2 focus:ring-pink-500 transition duration-200 text-gray-800 placeholder-gray-400 w-96" placeholder="Search for Venues, Halls...   " type="text"/>
+            <button class="bg-pink-700 p-3 rounded-r-lg shadow-md hover:bg-pink-600 transition duration-200">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Right section: City dropdown, login button, and side menu icon -->
+    <div class="flex items-center space-x-4">
+        <select class="bg-white text-black p-2 rounded" onchange="handleCitySelection(this)">
+            <option value="">Popular Search Locations</option>
+            <option value="mumbai.html">Mumbai</option>
+            <option value="delhi.html">Delhi</option>
+            <option value="bangalore.html">Bangalore</option>
+            <!-- Add other options as needed -->
+        </select>
+        <!-- Login button -->
+        <button class="bg-pink-700 p-2 rounded-lg shadow-md hover:bg-pink-600 transition duration-200" onclick="window.location.href='login.html'">Log In</button>
+        <!-- Side menu icon (hamburger icon) -->
+        <div class="relative">
+            <button class="bg-pink-700 p-2 rounded-lg shadow-md hover:bg-pink-600 transition duration-200" onclick="toggleSideMenu()">
+                <i class="fas fa-bars"></i> <!-- Hamburger icon -->
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Navbar -->
+<div class="bg-white p-4 shadow">
+    <div class="flex justify-between items-center">
+        <div class="flex gap-4">
+            <button class="hover:underline">Locality</button>
+            <button class="hover:underline">No. of Guests</button>
+            <button class="hover:underline">Room Count</button>
+            <button class="hover:underline">Price per plate (Rs)</button>
+            <button class="hover:underline">Rental Cost (Per function)</button>
+            <button class="hover:underline">Venue Type</button>
+            <button class="hover:underline">Space</button>
+            <button class="hover:underline">Rating</button>
+        </div>
+    </div>
+</div>
+
+<!-- Side Menu -->
+<div id="sideMenu">
+    <div class="p-4">
+        <button class="text-gray-600 hover:text-gray-800" onclick="toggleSideMenu()">
+            <i class="fas fa-times"></i> <!-- Close icon -->
+        </button>
+        <ul class="mt-4">
+            <li><a href="#" class="block py-2 text-gray-700 hover:bg-gray-100">Profile</a></li>
+            <li><a href="#" class="block py-2 text-gray-700 hover:bg-gray-100">Settings</a></li>
+            <li><a href="logout.php" class="block py-2 text-gray-700 hover:bg-gray-100">Log Out</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

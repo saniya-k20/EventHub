@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>About Us - EventHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #F9FAFB;
+            color: #1F2937;
+        }
+        #sideMenu {
+            position: fixed;
+            top: 80px;
+            right: -250px;
+            width: 250px;
+            height: calc(100vh - 80px);
+            background-color: #F1F4F9;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease-in-out;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        #sideMenu.show {
+            right: 0;
+        }
+
+        /* Search Modal Styles */
+    .search-modal {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 95%;
+        max-width: 1200px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        padding: 20px;
+    }
+    
+    .search-modal.show {
+        display: block;
+    }
+    
+    .search-modal-overlay {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+    
+    .search-modal-overlay.show {
+        display: block;
+    }
+    
+    /* Main Content */
+    main {
+        position: relative;
+        z-index: 0;
+    }
+
+    /* Search Options */
+    .search-sections {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    
+    .search-section {
+        padding: 15px;
+        min-width: 0;
+    }
+    
+    .search-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        color: #537CA2;
+        border-bottom: 2px solid #F1F4F9;
+        padding-bottom: 8px;
+    }
+    
+    .search-option {
+        padding: 10px;
+        margin: 5px 0;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.2s;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .search-option:hover {
+        background-color: #F1F4F9;
+    }
+    
+    .price-range-inputs {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .venue-type-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    
+    .close-search-modal {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #666;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: #FFFFFF; /* White background for dropdown */
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    .dropdown-content a {
+        color: #1F2937; /* Dark gray text */
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .dropdown-content a:hover {
+        background-color: #F3F4F6; /* Light gray hover */
+    }
+    .show {
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-[#8DA9C4] text-white p-4 flex justify-between items-center">
+        <!-- Left section: Logo and platform name -->
+        <div class="flex items-center space-x-4">
+            <img alt="EventHub Logo" class="h-10" height="40" src="eventhublogo (2).png" width="40"/>
+            <span>Your Event Planning Platform</span>
+        </div>
+        
+            <!-- Center section: Search bar -->
+            <div class="flex-grow mx-4">
+                <div class="flex justify-center">
+                    <input class="p-3 border border-gray-300 rounded-l-lg shadow-md focus:outline-none focus:ring-2 focus:ring-[#638475] transition duration-200 text-gray-800 placeholder-gray-400 w-96" 
+                           placeholder="Search for Venues, Halls..." 
+                           type="text"
+                           onclick="openSearchModal()"
+                           readonly />
+                    <button class="bg-[#537CA2] p-3 rounded-r-lg shadow-md hover:bg-[#37526C] transition duration-200" onclick="openSearchModal()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Right section: City dropdown, login button, and side menu icon -->
+            <div class="flex items-center space-x-4">
+                <select class="bg-white text-black p-2 rounded" onchange="handleCitySelection(this)">
+                    <option value="">Popular Search Locations</option>
+                    <option value="mumbai.html">Mumbai</option>
+                    <option value="delhi.html">Delhi</option>
+                    <option value="banglore.html">Bangalore</option>
+                    <!-- Add other options as needed -->
+                </select>
+                <!-- Login button -->
+                <button class="bg-[#537CA2] p-2 rounded-lg shadow-md hover:bg-[#37526C] transition duration-200" onclick="window.location.href='login.html'">Log In</button>
+                <!-- Side menu icon (hamburger icon) -->
+                <div class="relative">
+                    <button class="bg-[#537CA2] p-2 rounded-lg shadow-md hover:bg-[#37526C] transition duration-200" onclick="toggleSideMenu()">
+                        <i class="fas fa-bars"></i> <!-- Hamburger icon -->
+                    </button>
+                </div>
+            </div>
+        </header>
+
+<!-- Search Modal -->
+<!-- Updated Search Modal -->
+<div id="searchModalOverlay" class="search-modal-overlay"></div>
+<div id="searchModal" class="search-modal">
+    <button class="close-search-modal" onclick="closeSearchModal()">&times;</button>
+    <h2 class="text-2xl font-bold mb-6 text-[#537CA2]">Advanced Search</h2>
+    
+    <div class="search-sections">
+        <div class="search-section">
+            <h3>Popular Locations</h3>
+            <div class="search-option" onclick="selectSearchOption('Mumbai')">Mumbai</div>
+            <div class="search-option" onclick="selectSearchOption('Delhi')">Delhi</div>
+            <div class="search-option" onclick="selectSearchOption('Bangalore')">Bangalore</div>
+            <div class="search-option" onclick="selectSearchOption('Hyderabad')">Hyderabad</div>
+            <div class="search-option" onclick="selectSearchOption('Chennai')">Chennai</div>
+        </div>
+        
+        <div class="search-section">
+            <h3>Price Range (per plate)</h3>
+            <div class="search-option" onclick="selectPriceRange('0-1000')">Under ₹1,000</div>
+            <div class="search-option" onclick="selectPriceRange('1000-2000')">₹1,000 - ₹2,000</div>
+            <div class="search-option" onclick="selectPriceRange('2000-3000')">₹2,000 - ₹3,000</div>
+            <div class="search-option" onclick="selectPriceRange('3000-5000')">₹3,000 - ₹5,000</div>
+            <div class="search-option" onclick="selectPriceRange('5000+')">Above ₹5,000</div>
+        </div>
+        
+        <div class="search-section">
+            <h3>Venue Type</h3>
+            <div class="venue-type-options">
+                <div class="search-option" onclick="selectVenueType('Banquet Hall')">Banquet Hall</div>
+                <div class="search-option" onclick="selectVenueType('Hotel')">Hotel</div>
+                <div class="search-option" onclick="selectVenueType('Garden')">Garden</div>
+                <div class="search-option" onclick="selectVenueType('Beach')">Beach</div>
+                <div class="search-option" onclick="selectVenueType('Resort')">Resort</div>
+                <div class="search-option" onclick="selectVenueType('5 Star Hotel')">5 Star Hotel</div>
+                <div class="search-option" onclick="selectVenueType('Iconic 5 Star Hotel')">Iconic 5 Star Hotel</div>
+                <div class="search-option" onclick="selectVenueType('Luxury 5 Star Hotel')">Luxury 5 Star Hotel</div>
+            </div>
+        </div>
+        
+        <div class="search-section">
+            <h3>Capacity</h3>
+            <div class="search-option" onclick="selectCapacity('0-100')">Up to 100 guests</div>
+            <div class="search-option" onclick="selectCapacity('100-300')">100 - 300 guests</div>
+            <div class="search-option" onclick="selectCapacity('300-500')">300 - 500 guests</div>
+            <div class="search-option" onclick="selectCapacity('500-1000')">500 - 1,000 guests</div>
+            <div class="search-option" onclick="selectCapacity('1000+')">1,000+ guests</div>
+        </div>
+    </div>
+    
+    <div class="mt-6 flex justify-end">
+        <button onclick="performSearch()" class="bg-[#537CA2] text-white px-6 py-2 rounded hover:bg-[#37526C]">Search</button>
+    </div>
+</div>
+
+<script>
+// Search option selection functions
+let selectedOptions = {
+    location: null,
+    priceRange: null,
+    venueType: null,
+    capacity: null
+};
+
+// Update your existing search functions in home.html
+function selectSearchOption(location) {
+    // Remove selection from all location options first
+    document.querySelectorAll('.search-section:nth-child(1) .search-option').forEach(option => {
+        option.style.backgroundColor = 'transparent';
+    });
+    // Highlight selected option
+    event.target.style.backgroundColor = '#E2E8F0';
+    event.target.style.fontWeight = '600';
+    selectedOptions.location = location;
+}
+
+function selectPriceRange(range) {
+    // Remove selection from all price options
+    document.querySelectorAll('.search-section:nth-child(2) .search-option').forEach(option => {
+        option.style.backgroundColor = 'transparent';
+        option.style.fontWeight = '400';
+    });
+    // Highlight selected option
+    event.target.style.backgroundColor = '#E2E8F0';
+    event.target.style.fontWeight = '600';
+    selectedOptions.priceRange = range;
+}
+
+function selectVenueType(type) {
+    // Remove selection from all venue type options
+    document.querySelectorAll('.search-section:nth-child(3) .search-option').forEach(option => {
+        option.style.backgroundColor = 'transparent';
+        option.style.fontWeight = '400';
+    });
+    // Highlight selected option
+    event.target.style.backgroundColor = '#E2E8F0';
+    event.target.style.fontWeight = '600';
+    selectedOptions.venueType = type;
+}
+
+function selectCapacity(capacity) {
+    // Remove selection from all capacity options
+    document.querySelectorAll('.search-section:nth-child(4) .search-option').forEach(option => {
+        option.style.backgroundColor = 'transparent';
+        option.style.fontWeight = '400';
+    });
+    // Highlight selected option
+    event.target.style.backgroundColor = '#E2E8F0';
+    event.target.style.fontWeight = '600';
+    selectedOptions.capacity = capacity;
+}
+
+function performSearch() {
+    // Prepare search parameters
+    const searchParams = new URLSearchParams();
+    
+    if (selectedOptions.location) {
+        searchParams.append('location', selectedOptions.location.toLowerCase());
+    }
+    if (selectedOptions.priceRange) {
+        // Properly encode the + sign for 5000+
+        searchParams.append('price_range', selectedOptions.priceRange.replace('+', '%2B'));
+    }
+    if (selectedOptions.venueType) {
+        searchParams.append('venue_type', selectedOptions.venueType.toLowerCase().replace(/\s+/g, '_'));
+    }
+    if (selectedOptions.capacity) {
+        searchParams.append('capacity', selectedOptions.capacity);
+    }
+
+    console.log("Search parameters:", searchParams.toString());
+    
+    // Close the modal
+    closeSearchModal();
+    
+    // Redirect to search results page
+    window.location.href = `search-results.php?${searchParams.toString()}`;
+}
+
+    // Search Modal Functions
+    function openSearchModal() {
+            document.getElementById('searchModal').classList.add('show');
+            document.getElementById('searchModalOverlay').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSearchModal() {
+            document.getElementById('searchModal').classList.remove('show');
+            document.getElementById('searchModalOverlay').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('searchModalOverlay').addEventListener('click', closeSearchModal);
+
+    function toggleDropdown() {
+        var dropdown = document.getElementById("profileDropdown");
+        dropdown.classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.fa-user')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
+    // Handle city selection from dropdown
+    function handleCitySelection(selectElement) {
+        const selectedValue = selectElement.value;
+        if (selectedValue) {
+            window.location.href = selectedValue; // Navigate to the selected page
+        }
+    }
+</script>
+
+<!-- Breadcrumb -->
+<nav class="bg-gray-100 py-3 px-6 text-sm text-gray-600">
+    <ol class="list-reset flex">
+        <li><a href="home.html" class="text-blue-600 hover:underline">Home</a></li>
+        <li><span class="mx-2">/</span></li>
+        <li class="text-gray-500">About Us</li>
+    </ol>
+</nav>
+
+    <!-- Side Menu -->
+    <div id="sideMenu">
+        <div class="p-4">
+            <button class="text-gray-600 hover:text-gray-800" onclick="toggleSideMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="mt-4">
+                <li><a href="home.html" class="block py-2 text-gray-700 hover:bg-gray-100">Home</a></li>
+                <li><a href="profile.html" class="block py-2 text-gray-700 hover:bg-gray-100">Profile</a></li>
+                <li><a href="about.html" class="block py-2 text-gray-700 hover:bg-gray-100">About Us</a></li>
+                <li><a href="about.html" class="block py-2 text-gray-700 hover:bg-gray-100">Contact Us</a></li>
+                <li><a href="logout.php" class="block py-2 text-gray-700 hover:bg-gray-100">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- About Content -->
+    <main class="p-8 max-w-5xl mx-auto">
+        <h1 class="text-3xl font-bold mb-4 text-[#537CA2]">About EventHub</h1>
+        <p class="mb-4 text-lg">EventHub is your one-stop solution for seamless event planning. From wedding venues to catering services, our platform connects you with top-rated vendors and personalized event solutions.</p>
+        <p class="mb-4 text-lg">Our mission is to make event planning simple, efficient, and enjoyable. We bring all services under one roof to give you a hassle-free experience—whether it's finding a perfect location, customizing your event, or tracking bookings.</p>
+        <p class="text-lg">Join thousands of happy users who trust EventHub to make their special day truly memorable!</p>
+    </main>
+
+    <!-- Footer -->
+<!-- Footer -->
+<footer class="bg-[#537CA2] text-white p-8 mt-8 w-full">
+    <div class="mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="home.html" class="hover:underline hover:text-[#37526C]">Home</a></li>
+                    <li><a href="home.html" class="hover:underline hover:text-[#37526C]">Venues</a></li>
+                    <li><a href="userprofie.html" class="hover:underline hover:text-[#37526C]">Profile</a></li>
+                    <li><a href="about.html" class="hover:underline hover:text-[#37526C]">About Us</a></li>
+                    <li><a href="contact.html" class="hover:underline hover:text-[#37526C]">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-[#37526C]">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-[#37526C]">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-[#37526C]">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-[#37526C]">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-[#37526C]">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                <p class="mb-2 hover:text-[#37526C]"><i class="fas fa-map-marker-alt mr-2"></i>Mumbai, India</p>
+                <p class="mb-2 hover:text-[#37526C]"><i class="fas fa-phone-alt mr-2"></i>+91 81690 88424/p>
+                <p class="mb-2 hover:text-[#37526C]"><i class="fas fa-envelope mr-2"></i>amitmehta88036@gmail.com</p>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-t border-[#37526C] mt-8 pt-4 text-center">
+            <p>&copy; 2023 EventHub. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+    <script>
+        function toggleSideMenu() {
+            document.getElementById('sideMenu').classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

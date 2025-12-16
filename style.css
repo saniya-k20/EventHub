@@ -1,0 +1,276 @@
+/* styles.css */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Header Styles */
+header {
+    background-color: #db2777; /* bg-pink-600 */
+    color: white;
+    padding: 1rem; /* p-4 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* space-x-4 */
+}
+
+header input {
+    padding: 0.75rem; /* p-3 */
+    border: 1px solid #d1d5db; /* border-gray-300 */
+    border-radius: 0.5rem 0 0 0.5rem; /* rounded-l-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+header input:focus {
+    border-color: #ec4899; /* focus:ring-pink-500 */
+    box-shadow: 0 0 0 2px rgba(236, 72, 153, 0.5); /* focus:ring-2 */
+}
+
+header button {
+    background-color: #be185d; /* bg-pink-700 */
+    color: white;
+    padding: 0.75rem; /* p-3 */
+    border-radius: 0 0.5rem 0.5rem 0; /* rounded-r-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    transition: background-color 0.2s ease-in-out;
+}
+
+header button:hover {
+    background-color: #9d174d; /* hover:bg-pink-600 */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: white;
+    padding: 1rem; /* p-4 */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow */
+}
+
+.navbar .flex {
+    display: flex;
+    gap: 1rem; /* gap-4 */
+}
+
+.navbar button {
+    color: #4b5563; /* text-gray-600 */
+    transition: color 0.2s ease-in-out;
+}
+
+.navbar button:hover {
+    color: #1f2937; /* hover:text-gray-800 */
+    text-decoration: underline;
+}
+
+/* Side Menu Styles */
+#sideMenu {
+    position: absolute; /* Change to absolute */
+    top: 64px; /* Adjust this value based on your header height */
+    right: 0;
+    width: 250px; /* Set a width for the side menu */
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%); /* Initially hide it above the view */
+    transition: transform 0.3s ease-in-out;
+    z-index: 10; /* Ensure it appears above other content */
+}
+
+#sideMenu.show {
+    transform: translateY(0); /* Show the menu */
+}
+
+#sideMenu button {
+    color: #4b5563; /* text-gray-600 */
+    transition: color 0.2s ease-in-out;
+}
+
+#sideMenu button:hover {
+    color: #1f2937; /* hover:text-gray-800 */
+}
+
+#sideMenu ul {
+    margin-top: 1rem; /* mt-4 */
+}
+
+#sideMenu li a {
+    display: block;
+    padding: 0.5rem 1rem; /* py-2 px-4 */
+    color: #4b5563; /* text-gray-700 */
+    transition: background-color 0.2s ease-in-out;
+}
+
+#sideMenu li a:hover {
+    background-color: #f3f4f6; /* hover:bg-gray-100 */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #db2777; /* bg-pink-600 */
+    color: white;
+    padding: 2rem; /* p-8 */
+    margin-top: 2rem; /* mt-8 */
+    width: 100%;
+}
+
+footer .grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem; /* gap-8 */
+}
+
+@media (min-width: 768px) {
+    footer .grid {
+        grid-template-columns: repeat(3, 1fr); /* md:grid-cols-3 */
+    }
+}
+
+footer h3 {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 700; /* font-bold */
+    margin-bottom: 1rem; /* mb-4 */
+}
+
+footer ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* space-y-2 */
+}
+
+footer ul a {
+    color: white;
+    transition: color 0.2s ease-in-out;
+}
+
+footer ul a:hover {
+    color: #fbcfe8; /* hover:text-pink-300 */
+    text-decoration: underline;
+}
+
+footer .social-icons {
+    display: flex;
+    gap: 1rem; /* space-x-4 */
+}
+
+footer .social-icons a {
+    color: white;
+    transition: color 0.2s ease-in-out;
+}
+
+footer .social-icons a:hover {
+    color: #fbcfe8; /* hover:text-pink-300 */
+}
+
+footer .copyright {
+    border-top: 1px solid #f472b6; /* border-pink-500 */
+    padding-top: 1rem; /* pt-4 */
+    text-align: center;
+}
+
+/* Search Modal Styles */
+.search-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 100px; /* Positioned below the header */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1001; /* Higher than header z-index */
+    padding: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.search-modal.show {
+    display: block; /* Only show when has 'show' class */
+}
+
+.search-modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 80px; /* Starts below header */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Below modal but above everything else */
+}
+
+.search-modal-overlay.show {
+    display: block; /* Only show when has 'show' class */
+}
+
+/* Ensure header has proper z-index */
+header {
+    position: relative;
+    z-index: 100;
+}
+
+.search-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.search-section {
+    padding: 15px;
+}
+
+.search-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #537CA2;
+    border-bottom: 2px solid #F1F4F9;
+    padding-bottom: 8px;
+}
+
+.search-option {
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.search-option:hover {
+    background-color: #F1F4F9;
+}
+
+.price-range-inputs {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.price-range-inputs input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.venue-type-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.close-search-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .profile-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb; /* Gray border */
+            border-radius: 0.5rem;
+            outline: none;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .profile-input:focus {
+            border-color: #638475; /* Green border on focus */
+            box-shadow: 0 0 0 3px rgba(99, 132, 117, 0.1); /* Subtle focus shadow */
+        }
+        .profile-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .profile-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .profile-button {
+            background-color: #537CA2;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .profile-button:hover {
+            background-color: #37526C;
+        }
+        #sideMenu {
+            position: fixed;
+            top: 80px; /* Match the height of the navbar */
+            right: -250px; /* Start off-screen */
+            width: 250px;
+            height: calc(100vh - 80px); /* Full height minus the navbar height */
+            background-color: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease-in-out; /* Smooth transition */
+            z-index: 1000; /* Ensure it's above other content */
+            overflow-y: auto; /* Add scroll if content exceeds height */
+        }
+        #sideMenu.show {
+            right: 0; /* Slide in from the right */
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-[#8DA9C4] text-white p-4 flex justify-between items-center">
+        <!-- Left section: Logo and platform name -->
+        <div class="flex items-center space-x-4">
+            <img alt="WedMeGood Logo" class="h-10" height="40" src="eventhublogo (2).png" width="40"/>
+            <span>Your Event Planning Platform</span>
+        </div>
+        
+        <!-- Center section: Search bar -->
+        <div class="flex-grow mx-4">
+            <div class="flex justify-center">
+                <input class="p-3 border border-gray-300 rounded-l-lg shadow-md focus:outline-none focus:ring-2 focus:ring-[#638475] transition duration-200 text-gray-800 placeholder-gray-400 w-96" placeholder="Search for Venues, Halls...   " type="text"/>
+                <button class="bg-[#537CA2] p-3 rounded-r-lg shadow-md hover:bg-[#37526C] transition duration-200">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Right section: City dropdown, login button, and side menu icon -->
+        <div class="flex items-center space-x-4">
+            <select class="bg-white text-black p-2 rounded" onchange="handleCitySelection(this)">
+                <option value="">Popular Search Locations</option>
+                <option value="mumbai.html">Mumbai</option>
+                <option value="delhi.html">Delhi</option>
+                <option value="bangalore.html">Bangalore</option>
+                <!-- Add other options as needed -->
+            </select>
+            <!-- Login button -->
+            <button class="bg-[#537CA2] p-2 rounded-lg shadow-md hover:bg-[#37526C] transition duration-200" onclick="window.location.href='login.html'">Log In</button>
+            <!-- Side menu icon (hamburger icon) -->
+            <div class="relative">
+                <button class="bg-[#537CA2] p-2 rounded-lg shadow-md hover:bg-[#37526C] transition duration-200" onclick="toggleSideMenu()">
+                    <i class="fas fa-bars"></i> <!-- Hamburger icon -->
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Side Menu -->
+    <div id="sideMenu">
+        <div class="p-4">
+            <button class="text-gray-600 hover:text-gray-800" onclick="toggleSideMenu()">
+                <i class="fas fa-times"></i> <!-- Close icon -->
+            </button>
+            <ul class="mt-4">
+                <li><a href="home.html" class="block py-2 text-gray-700 hover:bg-gray-100">Home</a></li>
+                <li><a href="userprofile.html" class="block py-2 text-gray-700 hover:bg-gray-100">Profile</a></li>
+                <li><a href="about.html" class="block py-2 text-gray-700 hover:bg-gray-100">About</a></li>
+                <li><a href="contact.html" class="block py-2 text-gray-700 hover:bg-gray-100">Contact</a></li>
+                <li><a href="logout.php" class="block py-2 text-gray-700 hover:bg-gray-100">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="p-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Profile Header -->
+            <div class="text-center mb-8">
+                <div class="inline-block relative">
+                    <img src="https://via.placeholder.com/150" alt="Profile Picture" class="w-32 h-32 rounded-full border-4 border-white shadow-lg">
+                    <button class="absolute bottom-0 right-0 bg-[#537CA2] text-white p-2 rounded-full hover:bg-[#37526C] transition duration-200">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <h1 class="text-3xl font-bold text-[#37526C] mt-4">John Doe</h1>
+                <p class="text-gray-600">john.doe@example.com</p>
+            </div>
+
+            <!-- Profile Information Form -->
+            <div class="profile-card p-8">
+                <h2 class="text-2xl font-bold text-[#37526C] mb-6">Edit Profile</h2>
+                <form id="profileForm" class="space-y-6">
+                    <!-- Name -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="name" name="name" class="profile-input" placeholder="Enter your full name" required>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="email" name="email" class="profile-input" placeholder="Enter your email" required>
+                    </div>
+
+                    <!-- Phone -->
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+                        <input type="tel" id="phone" name="phone" class="profile-input" placeholder="Enter your phone number">
+                    </div>
+
+                    <!-- Save Changes Button -->
+                    <div class="text-center">
+                        <button type="submit" class="profile-button">
+                            <i class="fas fa-save mr-2"></i>Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#537CA2] text-white p-8 mt-8 w-full">
+        <div class="mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="home.html" class="hover:underline hover:text-[#37526C]">Home</a></li>
+                        <li><a href="home.html" class="hover:underline hover:text-[#37526C]">Venues</a></li>
+                        <li><a href="userprofile.html" class="hover:underline hover:text-[#37526C]">Profile</a></li>
+                        <li><a href="about.html" class="hover:underline hover:text-[#37526C]">About Us</a></li>
+                        <li><a href="contact.html" class="hover:underline hover:text-[#37526C]">Contact Us</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Social Media -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-[#37526C]">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-[#37526C]">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-[#37526C]">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-[#37526C]">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-[#37526C]">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Contact Information -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <p class="mb-2 hover:text-[#37526C]"><i class="fas fa-map-marker-alt mr-2"></i>123 Wedding Street, Mumbai, India</p>
+                    <p class="mb-2 hover:text-[#37526C]"><i class="fas fa-phone-alt mr-2"></i>+91 123 456 7890</p>
+                    <p class="mb-2 hover:text-[#37526C]"><i class="fas fa-envelope mr-2"></i>info@wedmegood.com</p>
+                </div>
+            </div>
+    
+            <!-- Copyright -->
+            <div class="border-t border-[#37526C] mt-8 pt-4 text-center">
+                <p>&copy; 2023 WedMeGood. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Profile Page Functionality -->
+    <script>
+        // Handle Form Submission
+        const profileForm = document.getElementById('profileForm');
+
+        profileForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            // Get form data
+            const formData = new FormData(profileForm);
+            const profileData = Object.fromEntries(formData.entries());
+
+            // Simulate saving data (replace with actual API call)
+            console.log('Profile Data:', profileData);
+            alert('Profile updated successfully!');
+        });
+
+        // Side Menu Functionality
+        function toggleSideMenu() {
+            const sideMenu = document.getElementById("sideMenu");
+            sideMenu.classList.toggle("show"); // Toggle the "show" class
+        }
+
+        // Close the side menu if clicked outside
+        window.onclick = function(event) {
+            const sideMenu = document.getElementById("sideMenu");
+            const hamburgerIcon = document.querySelector(".fa-bars");
+
+            if (!event.target.matches('.fa-bars') && !sideMenu.contains(event.target)) {
+                sideMenu.classList.remove("show"); // Hide the menu
+            }
+        }
+    </script>
+</body>
+</html>
